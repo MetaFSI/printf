@@ -1,5 +1,6 @@
 #include <stdarg.h>
 #include <unistd.h>
+#define MAX_DIGITS 10
 #include "main.h"
 
 /**
@@ -12,6 +13,8 @@ int print_int(va_list args)
 {
 int num = va_arg(args, int);
 int count = 0;
+int temp, digits;
+char buffer[MAX_DIGITS];
 
 if (num < 0)
 {
@@ -20,14 +23,13 @@ num *= -1;
 count++;
 }
 
-int temp = num, digits = 0;
+temp = num;
+digits = 0;
 while (temp != 0)
 {
 temp /= 10;
 digits++;
 }
-
-char buffer[digits];
 for (int i = digits - 1; i >= 0; i--)
 {
 buffer[i] = (num % 10) + '0';
