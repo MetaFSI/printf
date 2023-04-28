@@ -3,17 +3,6 @@
 #include "main.h"
 
 /**
- * _putchar - Writes a character to the standard output
- * @c: The character to wrie
- *
- * Return: The number of characters written, or -1 on error
- */
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
-
-/**
  * print_int - Prints an integer from a va_list
  * @args: The va_list containing the integer to be printed
  *
@@ -21,37 +10,37 @@ int _putchar(char c)
  */
 int print_int(va_list args)
 {
-	int num = va_arg(args, int);
-	int count = 0;
+int num = va_arg(args, int);
+int count = 0;
 
-	if (num < 0)
-	{
-		_putchar('-');
-		num *= -1;
-		count++;
-	}
+if (num < 0)
+{
+_putchar('-');
+num *= -1;
+count++;
+}
 
-	int temp = num, digits = 0;
-	while (temp != 0)
-	{
-		temp /= 10;
-		digits++;
-	}
+int temp = num, digits = 0;
+while (temp != 0)
+{
+temp /= 10;
+digits++;
+}
 
-	char buffer[digits];
-	for (int i = digits - 1; i >= 0; i--)
-	{
-		buffer[i] = (num % 10) + '0';
-		num /= 10;
-	}
+char buffer[digits];
+for (int i = digits - 1; i >= 0; i--)
+{
+buffer[i] = (num % 10) + '0';
+num /= 10;
+}
 
-	for (int i = 0; i < digits; i++)
-	{
-		_putchar(buffer[i]);
-		count++;
-	}
+for (int i = 0; i < digits; i++)
+{
+_putchar(buffer[i]);
+count++;
+}
 
-    	return count;
+return (count);
 }
 
 /**
@@ -127,9 +116,9 @@ int _printf(const char *format, ...)
 					count += print_percent(args);
 					break;
 				case 'd':
-	                	case 'i':
-                                       count += print_int(args);
-                                       break;
+				case 'i':
+					count += print_int(args);
+					break;
 			}
 		}
 		else
