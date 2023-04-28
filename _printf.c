@@ -30,13 +30,14 @@ while (temp != 0)
 temp /= 10;
 digits++;
 }
-for (int i = digits - 1; i >= 0; i--)
+int i;
+for (i = digits - 1; i >= 0; i--)
 {
 buffer[i] = (num % 10) + '0';
 num /= 10;
 }
 
-for (int i = 0; i < digits; i++)
+for (i = 0; i < digits; i++)
 {
 _putchar(buffer[i]);
 count++;
