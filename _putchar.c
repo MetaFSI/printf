@@ -2,7 +2,7 @@
 
 /**
  * _putchar - Writes a character to the standard output
- * @c: The character to wrie
+ * @c: The character to wrie.
  *
  * Return: The number of characters written, or -1 on error
  */
