@@ -27,4 +27,28 @@ int _printf(const char *format, ...);
  */
 int print_char(va_list args);
 
+/**
+ * print_string - Prints a string from a va_list
+ * @args: The va_list containing the string to be printed
+ *
+ * Return: The number of characters printed
+ */
+int print_string(va_list args);
+
+/**
+ * print_percent - Prints a percent sign
+ * @args: va_list (unused, but necessary for function pointer compatibility)
+ *
+ * Return: The number of characters printed
+ */
+int print_percent(va_list args);
+
+/**
+ * print_int - Prints an integer from a va_list
+ * @args: The va_list containing the integer to be printed
+ *
+ * Return: The number of characters printed
+ */
+int print_int(va_list args);
+
 #endif /* MAIN_H */
