@@ -14,6 +14,47 @@ int _putchar(char c)
 }
 
 /**
+ * print_int - Prints an integer from a va_list
+ * @args: The va_list containing the integer to be printed
+ *
+ * Return: The number of characters printed
+ */
+int print_int(va_list args)
+{
+	int num = va_arg(args, int);
+	int count = 0;
+
+	if (num < 0)
+	{
+		_putchar('-');
+		num *= -1;
+		count++;
+	}
+
+	int temp = num, digits = 0;
+	while (temp != 0)
+	{
+		temp /= 10;
+		digits++;
+	}
+
+	char buffer[digits];
+	for (int i = digits - 1; i >= 0; i--)
+	{
+		buffer[i] = (num % 10) + '0';
+		num /= 10;
+	}
+
+	for (int i = 0; i < digits; i++)
+	{
+		_putchar(buffer[i]);
+		count++;
+	}
+
+    	return count;
+}
+
+/**
  * print_char - Prints a character from a va_list
  * @args: The va_list containing a character to print
  *
@@ -85,6 +126,10 @@ int _printf(const char *format, ...)
 				case '%':
 					count += print_percent(args);
 					break;
+				case 'd':
+	                	case 'i':
+                                       count += print_int(args);
+                                       break;
 			}
 		}
 		else
